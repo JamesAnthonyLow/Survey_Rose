@@ -1,0 +1,5 @@
+<div id="page" class="container">
+  <% @post.each do |post|%>
+  <p><a href="/posts/<%=post.id%>"><%=post.title%></a></p>
+  <% end %>
+</div>

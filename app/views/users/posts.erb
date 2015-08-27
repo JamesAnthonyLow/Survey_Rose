@@ -1,0 +1,8 @@
+<div id="page" class="container">
+  <h1>Your Posts</h1>
+  <% @user.posts.each do |post|%>
+  <p><a href="/posts/<%=post.id%>"><%=post.title%></a></p>
+  <% end %>
+  <div class="spacer"></div>
+  <a href="/posts/new">New Post</a>
+</div>

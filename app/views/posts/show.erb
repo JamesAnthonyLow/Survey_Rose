@@ -1,0 +1,19 @@
+<div id="page" class="container">
+  <h2><%= @post.title %></h2>
+  <h4>by <%= @post.user.name %></h4>
+  <div class="spacer"></div>
+  <p><%= @post.body %></p>
+  <div class="spacer"></div>
+  <h5>Comments:</h5>
+  <div class="spacer"></div>
+    <% @comments.each do |comment| %>
+    <p><%= comment.body %></p>
+    <%end%>
+  <div class="spacer"></div>
+    <p>add comment:</p>
+  <form action="/posts/<%=@post.id%>/comments" method="POST">
+    <textarea row=10 col=100 id="comment_body" type="text" name="comment[body]" value="<%= @comment.body %>"></textarea>
+    <br>
+    <input type="submit" value="Comment" />
+  </form>
+</div>
