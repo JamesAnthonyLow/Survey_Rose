@@ -23,6 +23,7 @@ group :test do
 end
 
 group :test, :development do
+	gem 'shoulda-matchers', require: false
   gem 'factory_girl'
   gem 'faker'
 end
