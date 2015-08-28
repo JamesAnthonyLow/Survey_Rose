@@ -1,1 +1,6 @@
-get survey statistics
+<h1> <%= @survey.name %></h1>
+<ul>
+  <% @survey.questions.each do |question | %>
+    <%= erb :"questions/info", locals: {question: question} %>
+  <% end %>
+</ul>
