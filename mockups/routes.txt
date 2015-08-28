@@ -1,0 +1,24 @@
+MVP Person #1
+
+GET "/surveys" | Surveys#show | 
+
+GET "/surveys/:id" | Survey with all questions iterated rendered in partials
+
+POST "/surveys/:id" | Add Question info to survey
+
+
+===============================================================================================================
+
+MVP Person #2
+
+GET "/login" | signup and login 
+GET "/signup"
+POST "/users" | signup user
+
+GET "/users/:id/surveys/new" | Present Survey _form Iterate through question forms
+POST "/surveys/:id/questions" | post question to survey
+POST "/surveys" | post last question to survey and redirect
+
+===============================================================================================================
+
+GET "/surveys/:id/statistics" | Iterate over questions rendered in partials to show options choice and votes.count 
