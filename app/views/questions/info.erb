@@ -1,0 +1,8 @@
+<li>
+  </h5><%= question.body %></h5>
+  <ul>
+  <% question.options.each do |option| %>
+    <li><%= option.choice %> : <%= option.votes.count %></li>
+  <% end %>
+  </ul>
+</li>
