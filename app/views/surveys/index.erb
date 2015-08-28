@@ -1,3 +1,6 @@
-<% @surveys.each do |survey| %>
-  <li><a href="/surveys/<%= survey.id %>"><%= survey.name %></a></li>
-<% end %>
+<div class="smart-green container">
+  <% @surveys.each do |survey| %>
+    <li><h3><a href="/surveys/<%= survey.id %>"><%= survey.name %></a></h3></li>
+       <div class="spacer"></div>
+  <% end %>
+</div>
