@@ -21,6 +21,7 @@ end
 
 get "/surveys/:id/edit" do
   @survey = Survey.find_by(id: params[:id])
+  erb :"/surveys/edit"
 end
 
 put "/surveys/:id" do
@@ -31,3 +32,9 @@ put "/surveys/:id" do
   @survey = Survey.find_by(id: params[:id])
   @survey.questions << question
 end
+
+delete "/questions/:id/delete" do
+  q = Question.find_by(id: params[:id]).destroy
+  redirect "/surveys/#{q.survey.id}/edit"
+end
+
