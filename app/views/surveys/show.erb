@@ -1,0 +1,8 @@
+<!-- show survey with all questions iterated in partials -->
+<form action="/surveys/<%= @survey.id %>" method="POST">
+  <h1><%= @survey.name %></h1>
+  <% @survey.questions.each do |question| %>
+    <%= erb :"questions/show", locals: {question: question} %>
+  <% end %>
+  <input type="submit" value="Submit" />
+</form>
