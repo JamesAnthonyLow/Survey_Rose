@@ -11,7 +11,7 @@ end
 post "/surveys/:id" do
   survey = Survey.find_by(id: params[:id])
   survey.update_votes(params)
-  redirect "/surveys"
+  redirect "/surveys/#{params[:id]}/statistics"
 end
 
 get "/surveys/:id/statistics" do
