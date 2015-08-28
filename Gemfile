@@ -16,14 +16,13 @@ gem 'shotgun'
 gem 'bcrypt'
 
 group :test do
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
   gem 'rack-test'
   gem 'rspec', '~>3.0'
   gem 'capybara'
 end
 
 group :test, :development do
-	gem 'shoulda-matchers', require: false
   gem 'factory_girl'
   gem 'faker'
 end
