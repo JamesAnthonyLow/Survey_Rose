@@ -200,7 +200,7 @@ hr {
 /** WRAPPER */
 
 #wrapper {
-  background: #FFFFFF url(images/bg01.png) repeat;
+  background: #FFFFFF;
 }
 
 #footer-wrapper
@@ -299,7 +299,7 @@ hr {
 
 #menu-wrapper
 {
-  background: #FF6600;
+  background: rgb(255, 106, 76);
 }
 
 #menu {
@@ -604,8 +604,8 @@ hr {
     display: block;
     margin: -30px -30px 10px -30px;
     color: #FFF;
-    background: #6B949F;
-    text-shadow: 1px 1px 1px #6B949F;
+    background: rgb(127, 39, 22);
+    text-shadow: 1px 1px 1px rgb(53, 107, 0);
     border-radius: 5px 5px 0px 0px;
     -webkit-border-radius: 5px 5px 0px 0px;
     -moz-border-radius: 5px 5px 0px 0px;
@@ -714,10 +714,22 @@ ul
 
 
 .spacer {
-  height: 10px;
+  height: 20px;
 }
 
 .stat_wrapper {
   margin-left:38%;
   text-align: left;
+}
+
+#login {
+  float: left;
+  width:40%;
+  height: 40%;
+}
+
+#register {
+  float: right;
+  width:40%;
+  height: 40%;
 }

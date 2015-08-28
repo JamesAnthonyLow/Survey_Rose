@@ -1,0 +1,27 @@
+<div id="page" class="container">
+
+
+  <form class ="smart-green" action="/surveys/<%=@survey.id%>/questions" method="POST">
+    <h1>Add Question for <%=@survey.name%> </h1>
+      <ul>
+        <li>
+        <label>Question:</label>
+        <textarea row=5 col=40 id="body" type="text" name="question[body]" value=""></textarea>
+      </li>
+      <div class="spacer"></div>
+      <li>
+        <label>Options:</label>
+        <input type="text" name="option[choice1]" value="" />
+        <div class="spacer"></div>
+        <input type="text" name="option[choice2]" value="" />
+        <div class="spacer"></div>
+        <input type="text" name="option[choice3]" value="" />
+        <div class="spacer"></div>
+        <input type="text" name="option[choice4]" value="" />
+        <div class="spacer"></div>
+      </li>
+    </ul>
+    <input type="submit" value="Add a New question" />
+  </form>
+<a href="/users/login">Finish Survey Creation</a>
+</div>
