@@ -1,0 +1,40 @@
+<div id="page" class="container">
+    <form class ="smart-green" action="/users/login" method='POST'>
+     <h1>Login</h1>
+     <ul>
+      <li>
+        <label>username</label>
+        <input id="user_name" type="text" name="user[user_name]" />
+      </li>
+      <li>
+        <label>password</label>
+        <input id="login_pass" type="text" name="user[password]"
+      </li>
+      <li>
+        <input id="login"type='submit' value='login' />
+      </li>
+    </ul>
+    <a href="#">Forgot your password?</a>
+  </form>
+  <div class="spacer"></div>
+        <form class ="smart-green" action="/users/register" method='POST'>
+     <h1>Create Account</h1>
+     <ul>
+      <li>
+        <label>name</label>
+        <input id="name" type="text" name="user[name]" />
+      </li>
+      <li>
+        <label>username</label>
+        <input id="user_name" type="text" name="user[user_name]" />
+      </li>
+      <li>
+        <label>password</label>
+        <input id="password" type="text" name="user[password]"
+      </li>
+      <li>
+        <input id='register' type='submit' value='create account' />
+      </li>
+    </ul>
+  </form>
+</div>
