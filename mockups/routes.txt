@@ -6,6 +6,7 @@ GET "/surveys/:id" | Survey with all questions iterated rendered in partials
 
 POST "/surveys/:id" | Add Question info to survey
 
+GET "/surveys/:id/statistics" | Iterate over questions rendered in partials to show options choice and votes.count 
 
 ===============================================================================================================
 
@@ -20,5 +21,3 @@ POST "/surveys/:id/questions" | post question to survey
 POST "/surveys" | post last question to survey and redirect
 
 ===============================================================================================================
-
-GET "/surveys/:id/statistics" | Iterate over questions rendered in partials to show options choice and votes.count 
