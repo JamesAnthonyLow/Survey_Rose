@@ -1,9 +1,10 @@
 <!-- show survey with all questions iterated in partials -->
-<form action="/surveys/<%= @survey.id %>" method="POST">
+<div id="page" class="smart-green container">
   <h1><%= @survey.name %></h1>
-<input type="submit" value="Submit" />
- </form>
-  <% @survey.questions.each do |question| %>
-    <%= erb :"questions/edit", locals: {question: question} %>
-<% end %>
-<a href=""
+    <% @survey.questions.each do |question| %>
+      <%= erb :"questions/edit", locals: {question: question} %>
+  <% end %>
+<form action="/surveys/<%= @survey.id %>" method="POST">
+  <input type="submit" value="Submit" />
+   </form>
+<a href="/surveys/<%= @survey.id %>/questions/new">Add New Question</a></div>

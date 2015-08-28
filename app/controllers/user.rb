@@ -50,14 +50,9 @@ post "/users/:id/surveys" do
   if @survey.save
     @user.surveys << @survey
     @user.save
-    binding.pry
     redirect "/surveys/#{@survey.id}/questions/new"
   else
     redirect "/users/#{@user.id}/surveys/new"
   end
 end
-
-
-
-
 
