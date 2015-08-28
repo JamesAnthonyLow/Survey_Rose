@@ -1,12 +1,14 @@
 get "/surveys" do
-  "show all surveys"
+  erb :"surveys/index"
 end
 get "/surveys/:id" do
-  "show survey with all questions iterated in partials"
+  @question = Question.new
+  erb :"surveys/show"
 end
 post "/surveys/:id" do
   "add question votes to survey"
+  redirect "/surveys/#{params[:id]}"
 end
 get "/surveys/:id/statistics" do
-  "get survey statistics"
+  erb :"surveys/statistics"
 end
