@@ -50,32 +50,9 @@ post "/users/:id/surveys" do
   if @survey.save
     @user.surveys << @survey
     @user.save
-    binding.pry
     redirect "/surveys/#{@survey.id}/questions/new"
   else
     redirect "/users/#{@user.id}/surveys/new"
   end
 end
-
-post "/surveys/:survey_id/questions" do
-  @survey = Survey.find_by(id: params[:survey_id])
-  @question = Question.new(body: params[:question][:body])
-  if @question.save
-    @question.options.create(choice: params[:option][:choice1])
-    @question.options.create(choice: params[:option][:choice2])
-    @question.options.create(choice: params[:option][:choice3])
-    @question.options.create(choice: params[:option][:choice4])
-    @survey.questions << @question
-    @survey.save
-  end
-    redirect "/surveys/#{@survey.id}/questions/new"
-end
-
-get "/surveys/:survey_id/questions/new" do
-  @user = session[:user]
-  @survey= Survey.find_by(id: params[:survey_id])
-  erb :'/questions/new'
-end
-
-
 

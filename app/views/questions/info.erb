@@ -2,7 +2,9 @@
   </h5><%= question.body %></h5>
   <ul>
   <% question.options.each do |option| %>
+     <div class="spacer"></div>
     <li><%= option.choice %> : <%= option.votes.count %></li>
   <% end %>
+     <div class="spacer"></div>
   </ul>
 </li>

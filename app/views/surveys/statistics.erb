@@ -1,6 +1,8 @@
+<div class="smart-green">
 <h1> <%= @survey.name %></h1>
-<ul>
-  <% @survey.questions.each do |question| %>
-    <%= erb :"questions/info", locals: {question: question} %>
-  <% end %>
-</ul>
+  <ol>
+    <% @survey.questions.each do |question| %>
+      <%= erb :"questions/info", locals: {question: question} %>
+    <% end %>
+  </ol>
+</div>
