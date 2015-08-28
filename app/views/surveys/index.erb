@@ -1,1 +1,3 @@
-show all surveys
+<% @surveys.each do |survey| %>
+  <li><a href=""><%= survey.name %></a></li>
+<% end %>

@@ -1,1 +1,10 @@
-Display question with choices as radio buttons
+<ul>
+  <li>
+    <%= question.body %>
+    <% question.options.each do |option| %>
+      <ul>
+        <li><input type="radio" name="<%= question.id %>" value="<%= option.id %>"><%= option.choice %></li>
+      </ul>
+    <% end %>
+  </li>
+</ul>
