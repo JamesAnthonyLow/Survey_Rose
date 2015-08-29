@@ -49,7 +49,6 @@ post "/users/surveys" do
   @user = session[:user]
   @survey = @user.surveys.new(params[:survey])
   if @user.save
-    erb :"/questions/new", :layout => false if request.xhr?
     redirect "/surveys/#{@survey.id}/questions/new"
   else
     redirect "/users/#{@user.id}/surveys/new"

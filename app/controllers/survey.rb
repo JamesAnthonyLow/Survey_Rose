@@ -1,3 +1,4 @@
+
 get "/surveys" do
   @surveys = Survey.all
   erb :"surveys/index"
@@ -50,6 +51,8 @@ post "/surveys/:survey_id/questions" do
   @question = Question.create(body: params[:question][:body])
   @question.create_options(params[:option])
   @survey.questions << @question
+  @count = (@survey.questions.count + 1)
+  puts request.xhr?
   redirect "/surveys/#{@survey.id}/questions/new"
 end
 
