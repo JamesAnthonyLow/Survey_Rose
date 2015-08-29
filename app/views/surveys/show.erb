@@ -1,14 +1,14 @@
 <div class="container">
 <!-- show survey with all questions iterated in partials -->
-<form class="smart-green" action="/surveys/<%= @survey.id %>" method="POST">
-  <div class="spacer"></div>
-  <h1><%= @survey.name %></h1>
-  <div class="spacer"></div>
-    <ol>
-      <% @survey.questions.each do |question| %>
-        <%= erb :"questions/show", locals: {question: question} %>
-      <% end %>
-    </ol>
-  <input type="submit" value="Submit" />
-</form>
+  <form class="smart-green" action="/surveys/<%= @survey.id %>" method="POST">
+    <div class="spacer"></div>
+    <h1><%= @survey.name %></h1>
+    <div class="spacer"></div>
+      <ol>
+        <% @survey.questions.each do |question| %>
+          <%= erb :"questions/show", locals: {question: question} %>
+        <% end %>
+      </ol>
+    <input type="submit" value="Submit" />
+  </form>
 </div>
