@@ -14,10 +14,8 @@ class Survey < ActiveRecord::Base
   def update_votes(params={}, session_user)
     self.questions.each do |question|
       voter_choice_id = params["#{question.id}"]
-      new_vote = question.votes.new
+      new_vote = question.votes.new(survey_id: self.id, voter: session_user)
       new_vote.option = Option.find_by(id: voter_choice_id)
-      new_vote.survey_id = self.id
-      new_vote.voter = session_user
       new_vote.save
     end
   end
