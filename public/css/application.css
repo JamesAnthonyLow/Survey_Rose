@@ -725,11 +725,15 @@ ul
 #login {
   float: left;
   width:40%;
-  height: 40%;
+  height: 45%;
 }
 
 #register {
   float: right;
   width:40%;
-  height: 40%;
+  height: 45%;
+}
+
+.error {
+  color: red;
 }

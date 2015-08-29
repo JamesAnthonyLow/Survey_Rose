@@ -14,11 +14,12 @@ get '/users/login' do
 end
 
 post '/users/login' do
-  @user = User.find_by(username: params[:username])
-  if User.auth(@user.username, params[:user][:password])
+  @user = User.find_by(username: params[:user][:username]).try(:authenticate, params[:user][:password])
+  if @user
     session[:user] = @user
     redirect "/users/#{session[:user][:id]}"
   else
+    flash[:error] = "Wrong Username or Password"
     redirect 'users/login'
   end
 end

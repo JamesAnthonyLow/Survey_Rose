@@ -12,13 +12,17 @@
       </li>
       <div class="spacer"></div>
       <li>
-
         <input id="login"type='submit' value='login' />
       </li>
       <div class="spacer"></div>
       <li>
-
            <a href="#">Forgot your password?</a>
+      </li>
+      <div class="spacer"></div>
+      <li class="error">
+      <%if flash[:error] %>
+      <%= flash[:error] %>
+      <%end%>
       </li>
     </ul>
 
