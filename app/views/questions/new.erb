@@ -20,29 +20,8 @@
         <div class="spacer"></div>
       </li>
     </ul>
-    <input type="submit" value="Add a New question" />
+    <input id="thisinput" type="submit" value="Add a New question" />
   </form>
 <!-- <a href="/surveys/<%= @survey.id%>/edit">Finish</a> -->
-<script>
-  (function(){
-  runScript();
-  function runScript() {
-    if(window.$) {
-        $("#addnew").submit(function(e) {
-            e.preventDefault();
-          $.ajax({
-              type: $(this).attr("method"),
-              url: $(this).attr("action"),
-              data: $(this).serialize()
-            }).done(function(e) {
-              $(".container").append(e);
-            }).fail(function(e) {
-              alert(e.statusText);
-            });
-        });  
-    } else {
-      window.setTimeout( runScript, 50)
-    }
-  }
-})();
-</script>
+
+      

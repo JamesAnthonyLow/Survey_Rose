@@ -1,24 +1,27 @@
-$(document).ready(function () {
-      var addquestion = function() {
-      $(document).ready(function() {
-        $("#addnew").on("submit", function(e) {
-        		e.preventDefault();
+$(document).ready(function(){
+  runScript();
+  function runScript() {
+    if($("#addnew") && $("#thisinput")) {
+        $("#addnew").on("click", function(e) {
+            e.preventDefault();
           $.ajax({
-          		type: $(this).attr("method"),
-          		url: $(this).attr("action"),
-          		data: $(this).serialize()
+              type: $(this).attr("method"),
+              url: $(this).attr("action"),
+              data: $(this).serialize()
             }).done(function(e) {
               $(".container").append(e);
             }).fail(function(e) {
               alert(e.statusText);
             });
-        });	
         });  
-      }
+    } else {
+      window.setTimeout( runScript, 50)
+    }
+  }
 
   // var intercept_form_and_append = function(form, div){
   //      if(div == undefined) { var div = form; };
-     $("#newsurveyform").on("submit", function(e) {
+     $("#newsurveyform").submit(function(e) {
         e.preventDefault();
       $.ajax({
           type: $(this).attr("method"),
@@ -31,11 +34,10 @@ $(document).ready(function () {
         });
     });   
   // }
-
+});
   // intercept_form_and_append("#newsurveyform", ".container");
 
 
-});
 // $(document).ready(function () {
 
 // 	  $("#addnew").submit(function(e) {
