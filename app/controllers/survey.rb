@@ -52,7 +52,6 @@ post "/surveys/:survey_id/questions" do
   @question.create_options(params[:option])
   @survey.questions << @question
   @count = (@survey.questions.count + 1)
-  puts request.xhr?
   redirect "/surveys/#{@survey.id}/questions/new"
 end
 
@@ -60,5 +59,5 @@ get "/surveys/:survey_id/questions/new" do
   @user = session[:user]
   @survey= Survey.find_by(id: params[:survey_id])
   @count = (@survey.questions.count + 1)
-  erb :'/questions/new', :layout => false if request.xhr?
+  erb :'/questions/new', :layout => false
 end

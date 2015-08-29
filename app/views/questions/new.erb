@@ -1,6 +1,29 @@
+<script>runScript();
+  function runScript() {
+    if(window.$) {
+        $(document).ready(function() {
+          alert("it works");
+        $("#addnew").on("submit", function(e) {
+            e.preventDefault();
+          $.ajax({
+              type: $(this).attr("method"),
+              url: $(this).attr("action"),
+              data: $(this).serialize()
+            }).done(function(e) {
+              $(".container").append(e);
+            }).fail(function(e) {
+              alert(e.statusText);
+            });
+        }); 
+        });  
+    } else {
+      window.setTimeout( runScript, 50)
+    }
+  }
+</script>
   <div class="spacer"></div>
   <div class="spacer"></div>
-  <form id="addnew" class="newquestionform" action="/surveys/<%=@survey.id%>/questions" method="POST">
+  <form id="addnew" class="smart-green" action="/surveys/<%=@survey.id%>/questions" method="POST">
     <h3> Question #<%= @count %> </h3>
       <ul>
         <li>
