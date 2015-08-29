@@ -4,12 +4,11 @@ get "/surveys" do
 end
 
 get "/surveys/:id" do
-  survey = Survey.find_by(id: params[:id])
-  if !survey.already_voted_by_user?(session[:user])
-    @survey = Survey.find_by(id: params[:id])
+  @survey = Survey.find_by(id: params[:id])
+  if !@survey.already_voted_by_user?(session[:user])
     erb :"surveys/show"
   else
-    erb :'/surveys/already_voted'
+    redirect "/surveys/#{@survey.id}/statistics"
   end
 end
 
@@ -21,6 +20,9 @@ end
 
 get "/surveys/:id/statistics" do
   @survey = Survey.find_by(id: params[:id])
+  if @survey.user_created_survey?(session[:user])
+    @can_edit = true
+  end
   erb :"surveys/statistics"
 end
 
