@@ -3,8 +3,8 @@ class Survey < ActiveRecord::Base
 	has_many :questions
 	has_many :votes
 
-	def already_voted?(user)
-		votes.map(&:voter).any? {|voter| voter == user}
+	def already_voted_by_user?(user)
+		votes.map(&:voter).any? {|voter| voter == session[:user]}
 	end
 
   def update_votes(params={})
