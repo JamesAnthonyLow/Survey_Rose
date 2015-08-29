@@ -15,12 +15,8 @@ end
 
 post "/surveys/:id" do
   survey = Survey.find_by(id: params[:id])
-  if !survey.already_voted_by_user?(session[:user])
-    survey.update_votes(params, session[:user])
-    redirect "/surveys/#{params[:id]}/statistics"
-  else
-    erb :'/surveys/already_voted'
-  end
+  survey.update_votes(params, session[:user])
+  redirect "/surveys/#{params[:id]}/statistics"
 end
 
 get "/surveys/:id/statistics" do
