@@ -45,15 +45,9 @@ end
 
 post "/surveys/:survey_id/questions" do
   @survey = Survey.find_by(id: params[:survey_id])
-  @question = Question.new(body: params[:question][:body])
-  if @question.save
-    @question.options.create(choice: params[:option][:choice1])
-    @question.options.create(choice: params[:option][:choice2])
-    @question.options.create(choice: params[:option][:choice3])
-    @question.options.create(choice: params[:option][:choice4])
-    @survey.questions << @question
-    @survey.save
-  end
+  @question = Question.create(body: params[:question][:body])
+  @question.create_options(params[:option])
+  @survey.questions << @question
     redirect "/surveys/#{@survey.id}/questions/new"
 end
 
