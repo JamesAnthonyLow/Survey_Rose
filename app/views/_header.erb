@@ -1,12 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Flashcards</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
+<title>Survey Rose</title>
 <link href="http://fonts.googleapis.com/css?family=Raleway:400,200,500,600,700,800,300" rel="stylesheet" />
-<link href="default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 
 <body>
@@ -14,12 +10,12 @@
   <div id="menu-wrapper">
     <div id="menu" class="container">
       <ul>
-          <li><a href="/">Survey Rose</a></li>
+          <li><a href="/">Surveys</a></li>
         <% if session[:user] %>
           <li><a href="/users/<%= session[:user][:id] %>">Your Profile</a></li>
           <li><a href="/users/<%= session[:user][:id] %>/logout">Log Out</a></li>
         <%else%>
-          <li><a href="/users/login">Login</a></li>
+          <li><a href="/users/login">Login or Register</a></li>
         <%end%>
 
       </ul>
