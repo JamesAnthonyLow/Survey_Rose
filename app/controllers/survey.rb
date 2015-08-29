@@ -50,11 +50,12 @@ post "/surveys/:survey_id/questions" do
   @question = Question.create(body: params[:question][:body])
   @question.create_options(params[:option])
   @survey.questions << @question
-    redirect "/surveys/#{@survey.id}/questions/new"
+  redirect "/surveys/#{@survey.id}/questions/new"
 end
 
 get "/surveys/:survey_id/questions/new" do
   @user = session[:user]
   @survey= Survey.find_by(id: params[:survey_id])
-  erb :'/questions/new'
+  @count = (@survey.questions.count + 1)
+  erb :'/questions/new', :layout => false if request.xhr?
 end

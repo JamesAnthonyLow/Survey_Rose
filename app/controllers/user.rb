@@ -46,12 +46,11 @@ get "/users/:id/surveys/new" do
 end
 
 post "/users/surveys" do
-  p "success!"
   @user = session[:user]
   @survey = @user.surveys.new(params[:survey])
   if @user.save
-    erb :"/questions/new", :layout => false
-    # redirect "/surveys/#{@survey.id}/questions/new"
+    erb :"/questions/new", :layout => false if request.xhr?
+    redirect "/surveys/#{@survey.id}/questions/new"
   else
     redirect "/users/#{@user.id}/surveys/new"
   end
