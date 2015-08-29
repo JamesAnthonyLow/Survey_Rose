@@ -5,4 +5,7 @@
       <%= erb :"questions/info", locals: {question: question} %>
     <% end %>
   </ol>
+  <% if @can_edit == true %>
+    <a href="/surveys/<%= @survey.id %>/edit">Edit Survey</a>
+  <% end %>
 </div>

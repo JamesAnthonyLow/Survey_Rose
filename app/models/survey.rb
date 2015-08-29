@@ -7,6 +7,10 @@ class Survey < ActiveRecord::Base
 		votes.map(&:voter_id).any? {|voter| voter == user.id}
 	end
 
+  def user_created_survey?(user)
+    creator == user
+  end
+
   def update_votes(params={}, session_user)
     self.questions.each do |question|
       voter_choice_id = params["#{question.id}"]
