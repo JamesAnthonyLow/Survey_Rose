@@ -737,3 +737,7 @@ ul
 .error {
   color: red;
 }
+
+.container {
+  text-align: center;
+}
