@@ -1,4 +1,7 @@
-<div class="smart-green container">
+<div id = "page" class="container">
+  <div id="content">
+  <h1>All Surveys</h1>
+  <div class="spacer"></div>
   <% @surveys.each do |survey| %>
     <li>
       <h3><a href="/surveys/<%= survey.id %>"><%= survey.name %></a></h3>
@@ -6,4 +9,5 @@
     </li>
        <div class="spacer"></div>
   <% end %>
+ </div>
 </div>

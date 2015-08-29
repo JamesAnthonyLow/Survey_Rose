@@ -57,3 +57,7 @@ post "/users/surveys" do
   end
 end
 
+get "/users/:id/surveys" do
+  @surveys = session[:user].surveys.all
+  erb :'/users/surveys'
+end 

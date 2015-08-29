@@ -205,7 +205,7 @@ hr {
 
 #footer-wrapper
 {
-  height: 50px;
+
   background: #0F0F0F;
 }
 
@@ -354,7 +354,9 @@ hr {
 
 #content
 {
-  text-align: center;
+   margin: auto;
+    width: 60%;
+    padding: 10px;
   min-height: 250px;
 }
 

@@ -1,4 +1,11 @@
 <div id="page" class="container">
-  <h3>Hi, <%=@user.username %></h3>
+ <div id = 'content'>
+  <h1>Hi, <%=@user.username %></h1>
   <div class="spacer"></div>
+  <a href="/users/<%=@user.id%>/surveys">Your Surveys</a>
+  <div class="spacer"></div>
+  <a href="/users/<%=@user.id%>/surveys/new">Make a New Survey</a>
+  <div class="spacer"></div>
+  <a href="/surveys">Take a Survey</a>
+  </div>
 </div>
