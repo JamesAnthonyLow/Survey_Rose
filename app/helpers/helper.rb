@@ -1,3 +1,3 @@
 def logged_in?
-  session[:user] ? true:false
+  session[:user] ? true : false
 end
