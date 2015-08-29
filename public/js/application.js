@@ -8,16 +8,24 @@
 //       })
 //     });
 $(document).ready(function () {
-  $("#newsurvey").submit(function(e) {
-  	e.preventDefault();
-    $.ajax({
-      type: "post",
-      url: "/users/surveys",
-      data: $(this).serialize()
-        }).done(function(e) {
-          $('#newsurvey').append(e);
-        }).fail(function(e) {
-         alert(e.statusText);
-        });
-  });
+
+	var intercept_form = function(form){
+
+	  $(form).submit(function(e) {
+	  	e.preventDefault();
+	    $.ajax({
+	      type: $(this).attr("method"),
+	      url: $(this).attr("action"),
+	      data: $(this).serialize()
+	        }).done(function(e) {
+	          $(form).append(e);
+	        }).fail(function(e) {
+	         alert(e.statusText);
+	        });
+	  });
+	}
+
+	intercept_form("#newsurvey");
+
+
 });
