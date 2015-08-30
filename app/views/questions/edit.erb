@@ -1,6 +1,6 @@
-<ul>
+<div class="smart-green">
   <li>
-    <%= question.body %><form action="/questions/<%= question.id %>/delete" method="POST">
+    <%= count %>. <%= question.body %><form action="/questions/<%= question.id %>/delete" method="POST">
     <input type="submit" value="DELETE"/>
     <input name="_method" type="hidden" value="DELETE" /></form>
     <% question.options.each do |option| %>
@@ -9,4 +9,4 @@
       </ul>
     <% end %>
   </li>
-</ul>
+</div>
