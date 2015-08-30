@@ -1,23 +1,34 @@
-// $(document).ready(function () {
-//   $('#register').on('click', function(e){
-//     var link = $(this).attr
-//     e.preventDefault();
-//     console.log(link)
-//       // $.ajax({type: "POST", url: link).done(function(){
-//       //     $('#vote').hide()
-//       })
-//     });
-$(document).ready(function () {
-  $("#newsurvey").submit(function(e) {
-  	e.preventDefault();
-    $.ajax({
-      type: "post",
-      url: "/users/surveys",
-      data: $(this).serialize()
+$(document).ready(function(){
+        $(document).on("submit", "#addnew", function(e) {
+            e.preventDefault();
+          $.ajax({
+              type: $(this).attr("method"),
+              url: $(this).attr("action"),
+              data: $(this).serialize()
+            }).done(function(e) {
+              $(".container").append(e);
+            }).fail(function(e) {
+              alert(e.statusText);
+            });
+        });  
+
+     $("#newsurveyform").submit(function(e) {
+        e.preventDefault();
+      $.ajax({
+          type: $(this).attr("method"),
+          url: $(this).attr("action"),
+          data: $(this).serialize()
         }).done(function(e) {
-          $('#newsurvey').append(e);
+          $.when($(".container").append(e)).done(function(){
+            $(".container").children().on("submit", "#addnew", function(e){
+              e.preventDefault();
+              alert("god damn!");
+            });
+          });
         }).fail(function(e) {
-         alert(e.statusText);
+          alert(e.statusText);
         });
-  });
+    });   
+  // }
 });
+

@@ -4,7 +4,7 @@ class Survey < ActiveRecord::Base
 	has_many :votes
 
 	def already_voted_by_user?(user)
-		votes.map(&:voter_id).any? {|voter| voter == user.id}
+		votes.map(&:voter_id).any? {|voter| voter == user.id} unless !user
 	end
 
   def user_created_survey?(user)

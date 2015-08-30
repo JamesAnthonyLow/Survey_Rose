@@ -1,6 +1,7 @@
-<div id="page" class="container">
-  <form class="smart-green" action="/surveys/<%=@survey.id%>/questions" method="POST">
-    <h1>Add Question for <%=@survey.name%> </h1>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <form id="addnew" class="smart-green" action="/surveys/<%=@survey.id%>/questions" method="POST">
+    <h3> Question #<%= @count %> </h3>
       <ul>
         <li>
         <label>Question:</label>
@@ -19,7 +20,8 @@
         <div class="spacer"></div>
       </li>
     </ul>
-    <input type="submit" value="Add a New question" />
+    <input id="thisinput" type="submit" value="Add a New question" />
   </form>
-<a href="/surveys/<%= @survey.id%>/edit">Finish</a>
-</div>
+<!-- <a href="/surveys/<%= @survey.id%>/edit">Finish</a> -->
+
+      
