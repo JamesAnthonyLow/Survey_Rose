@@ -34,5 +34,8 @@ delete "/questions/:id/delete" do
 end
 
 get "/questions/:id/edit" do
-  
+  @question = Question.find_by(id: params[:id])
+  survey = @question.survey
+  @count = (survey.questions.index(@question) + 1)
+  erb :"questions/edit", layout: false if request.xhr?
 end

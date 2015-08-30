@@ -1,10 +1,10 @@
-<div class="smart-green deletediv">
+<div class="smart-green deletediv editdiv">
 	<li>
 	  <%= count %>. </h5><%= question.body %></h5>
 	  	<div class="delete">
 	  		<form class="deleteform" action ="/questions/<%= question.id %>/delete" method="post"><input class="mydelete" type="image" src="/mydelete.ico" alt="DELETE"/><input type="hidden" method="_method" value="DELETE" /></form>
 	  	</div>
-		  	<div class="edit">
+		  	<div>
 		  	<form class="editform" action ="/questions/<%= question.id %>/edit" method="GET"><input class="myedit" type="image" method="_method" src="/edit.png" alt="edit" /></form>
 		  </div>
 	  <ol>

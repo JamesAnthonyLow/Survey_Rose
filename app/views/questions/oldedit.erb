@@ -1,0 +1,9 @@
+<div id="replaceable">
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <form  class="smart-green addnew" action="/surveys/<%= survey.id %>/questions" method="POST">
+    <%= erb :"questions/_form", locals: { count: count, question: question } %>
+  </form>
+<!-- <a href="/surveys/<%= survey.id %>/edit">Finish</a> -->
+</div>
+      

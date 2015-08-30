@@ -22,6 +22,17 @@ $(document).ready(function(){
     }).fail(function(e) {
       alert(e.statusText);});});
 
+       //intercept question EDIT function
+  $(document).on("submit", ".editform", function(e){
+    e.preventDefault();
+    var editform = $(this);
+    $.ajax({
+      url: editform.attr("action"),
+    }).done(function(e) {
+      $(document).find(editform).closest(".editdiv").replaceWith(e);
+    }).fail(function(e) {
+      alert(e.statusText);});});
+
 
         //save survey name and dropdown new question form
   $("#newsurveyform").submit(function(e) {
