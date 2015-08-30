@@ -1,8 +1,8 @@
-<div class="smart-green">
+<div class="smart-green deletediv">
 	<li>
 	  <%= count %>. </h5><%= question.body %></h5>
 	  	<div class="delete">
-	  		<form action ="/questions/<%= question.id %>/delete" method="post"><input type="image" src="/trash.png" alt="DELETE"/><input type="hidden" method="_method" /></form>
+	  		<form class="deleteform" action ="/questions/<%= question.id %>/delete" method="post"><input class="mydelete" type="image" src="/mydelete.ico" alt="DELETE"/><input type="hidden" method="_method" value="DELETE" /></form>
 	  	</div>
 	  <ol>
 	  <% question.options.each do |option| %>

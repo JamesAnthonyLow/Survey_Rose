@@ -46,7 +46,8 @@ end
 
 delete "/questions/:id/delete" do
   q = Question.find_by(id: params[:id]).destroy
-  redirect "/surveys/#{q.survey.id}/edit"
+  redirect "/surveys/#{q.survey.id}/edit" unless request.xhr?
+  erb "<p></p>"
 end
 
 post "/surveys/:survey_id/questions" do

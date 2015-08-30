@@ -743,3 +743,8 @@ ul
 .center {
   text-align: center;
 }
+
+.mydelete {
+  float: right;
+  width: 20px;
+}
