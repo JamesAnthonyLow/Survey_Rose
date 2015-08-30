@@ -1,32 +1,29 @@
-
 get "/surveys" do
   @surveys = Survey.all
   erb :"surveys/index"
 end
 
 get "/surveys/:id" do
-  if session[:user]
-    @survey = Survey.find_by(id: params[:id])
-    if !@survey.already_voted_by_user?(session[:user])
-      erb :"surveys/show"
-    else
-      redirect "/surveys/#{@survey.id}/statistics"
-    end
-  else
+  unless session[:user]
     flash[:error] = "You must log in to take a survey."
     redirect '/users/login'
+  end
+  @survey = Survey.find_by(id: params[:id])
+  unless @survey.already_voted_by_user?(session[:user])
+    erb :"surveys/show"
+  else
+    redirect "/surveys/#{@survey.id}/statistics"
   end
 end
 
 post "/surveys/:id" do
-  survey = Survey.find_by(id: params[:id])
-  survey.update_votes(params, session[:user])
+  Survey.find_by(id: params[:id]).update_votes(params, session[:user])
   redirect "/surveys/#{params[:id]}/statistics"
 end
 
 get "/surveys/:id/statistics" do
   @survey = Survey.find_by(id: params[:id])
-  if @survey.user_created_survey?(session[:user])
+  if @survey && @survey.user_created_survey?(session[:user])
     @can_edit = true
   end
   erb :"surveys/statistics"
@@ -37,14 +34,15 @@ get "/surveys/:id/edit" do
   erb :"/surveys/edit"
 end
 
-put "/surveys/:id" do
-  question = Question.create()
-  options.each do |option|
+# needs to be fixed
+# put "/surveys/:id" do
+#   question = Question.create()
+#   options.each do |option|
 
-  end
-  @survey = Survey.find_by(id: params[:id])
-  @survey.questions << question
-end
+#   end
+#   @survey = Survey.find_by(id: params[:id])
+#   @survey.questions << question
+# end
 
 delete "/questions/:id/delete" do
   q = Question.find_by(id: params[:id]).destroy
@@ -57,9 +55,7 @@ post "/surveys/:survey_id/questions" do
   @question.create_options(params[:option])
   @survey.questions << @question
   @count = (@survey.questions.count + 1)
-  unless request.xhr?
-    redirect "/surveys/#{@survey.id}/questions/new"
-  end
+  redirect "/surveys/#{@survey.id}/questions/new" unless request.xhr?
   unless @survey.questions.empty?
     @question = @survey.questions.last 
     erb :"questions/next", layout: false

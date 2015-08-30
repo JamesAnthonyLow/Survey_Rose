@@ -1,6 +1,9 @@
 <div class="smart-green">
 	<li>
 	  <%= count %>. </h5><%= question.body %></h5>
+	  	<div class="delete">
+	  		<form action ="/questions/<%= question.id %>/delete" method="post"><input type="image" src="/trash.png" alt="DELETE"/><input type="hidden" method="_method" /></form>
+	  	</div>
 	  <ol>
 	  <% question.options.each do |option| %>
 	     <div class="spacer"></div>
