@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  runScript();
-  function runScript() {
         $(document).on("submit", "#addnew", function(e) {
             e.preventDefault();
           $.ajax({
@@ -13,10 +11,7 @@ $(document).ready(function(){
               alert(e.statusText);
             });
         });  
-  }
 
-  // var intercept_form_and_append = function(form, div){
-  //      if(div == undefined) { var div = form; };
      $("#newsurveyform").submit(function(e) {
         e.preventDefault();
       $.ajax({
@@ -36,21 +31,4 @@ $(document).ready(function(){
     });   
   // }
 });
-  // intercept_form_and_append("#newsurveyform", ".container");
 
-
-// $(document).ready(function () {
-
-// 	  $("#addnew").submit(function(e) {
-// 	  		e.preventDefault();
-// 	    $.ajax({ 
-//       		type: $(this).attr("method"),
-//       		url: $(this).attr("action"),
-//       		data: $(this).serialize()
-//         }).done(function(e) {
-//           $("#newquestiondiv").append(e.responseText);
-//         }).fail(function(e) {
-//           alert(e.statusText);
-//         });
-// 	  });
-// });
