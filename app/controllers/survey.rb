@@ -56,7 +56,16 @@ post "/surveys/:survey_id/questions" do
   @question = Question.create(body: params[:question][:body])
   @question.create_options(params[:option])
   @survey.questions << @question
-  redirect "/surveys/#{@survey.id}/questions/new"
+  @count = (@survey.questions.count + 1)
+  unless request.xhr?
+    redirect "/surveys/#{@survey.id}/questions/new"
+  end
+  unless @survey.questions.empty?
+    @question = @survey.questions.last 
+    erb :"questions/next", layout: false
+  else
+    erb :"questions/new", locals: {survey: @survey, count: @count }, layout: false
+  end
 end
 
 get "/surveys/:survey_id/questions/new" do
