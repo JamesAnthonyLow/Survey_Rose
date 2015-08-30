@@ -2,26 +2,7 @@
   <div class="spacer"></div>
   <div class="spacer"></div>
   <form  class="smart-green addnew" action="/surveys/<%= survey.id %>/questions" method="POST">
-    <h3> Question #<%= count %> </h3>
-      <ul>
-        <li>
-        <label>Question:</label>
-        <textarea row=5 col=40 id="body" type="text" name="question[body]" value=""></textarea>
-      </li>
-      <div class="spacer"></div>
-      <li>
-        <label>Options:</label>
-        <input type="text" name="option[choice1]" value="" />
-        <div class="spacer"></div>
-        <input type="text" name="option[choice2]" value="" />
-        <div class="spacer"></div>
-        <input type="text" name="option[choice3]" value="" />
-        <div class="spacer"></div>
-        <input type="text" name="option[choice4]" value="" />
-        <div class="spacer"></div>
-      </li>
-    </ul>
-    <input id="thisinput" type="submit" value="Add a New question" />
+    <%= erb :"questions/_form", locals: { count: count, question: question } %>
   </form>
 <!-- <a href="/surveys/<%= survey.id %>/edit">Finish</a> -->
 </div>

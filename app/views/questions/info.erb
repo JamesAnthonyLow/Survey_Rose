@@ -4,6 +4,9 @@
 	  	<div class="delete">
 	  		<form class="deleteform" action ="/questions/<%= question.id %>/delete" method="post"><input class="mydelete" type="image" src="/mydelete.ico" alt="DELETE"/><input type="hidden" method="_method" value="DELETE" /></form>
 	  	</div>
+		  	<div class="edit">
+		  	<form class="editform" action ="/questions/<%= question.id %>/delete" method="post"><input class="mydelete" type="image" src="/mydelete.ico" alt="DELETE"/><input type="hidden" method="_method" value="DELETE" /></form>
+		  </div>
 	  <ol>
 	  <% question.options.each do |option| %>
 	     <div class="spacer"></div>
