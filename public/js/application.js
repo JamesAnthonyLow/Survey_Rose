@@ -1,8 +1,7 @@
 $(document).ready(function(){
   runScript();
   function runScript() {
-    if($("#addnew") && $("#thisinput")) {
-        $("#addnew").on("click", function(e) {
+        $(document).on("submit", "#addnew", function(e) {
             e.preventDefault();
           $.ajax({
               type: $(this).attr("method"),
@@ -14,9 +13,6 @@ $(document).ready(function(){
               alert(e.statusText);
             });
         });  
-    } else {
-      window.setTimeout( runScript, 50)
-    }
   }
 
   // var intercept_form_and_append = function(form, div){
@@ -28,7 +24,12 @@ $(document).ready(function(){
           url: $(this).attr("action"),
           data: $(this).serialize()
         }).done(function(e) {
-          $(".container").append(e);
+          $.when($(".container").append(e)).done(function(){
+            $(".container").children().on("submit", "#addnew", function(e){
+              e.preventDefault();
+              alert("god damn!");
+            });
+          });
         }).fail(function(e) {
           alert(e.statusText);
         });
