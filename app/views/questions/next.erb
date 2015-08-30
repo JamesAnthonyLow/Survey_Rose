@@ -1,2 +1,2 @@
-<%= erb :"questions/edit", locals: { question: @question } %>
+<%= erb :"questions/info", locals: { question: @question, count: (@count - 1 ) } %>
 <%= erb :"questions/new", locals: { survey: @survey, count: @count } %>
