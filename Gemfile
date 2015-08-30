@@ -15,6 +15,8 @@ gem 'pry'
 gem 'shotgun'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'chartkick'
+gem 'googlecharts'
 
 group :test do
   gem 'shoulda-matchers', require: false

@@ -1,11 +1,13 @@
-<div class="smart-green">
+<div id="page" class="container">
+<div class="center">
 <h1> <%= @survey.name %></h1>
-  <ol>
-    <% @survey.questions.each do |question| %>
+  <div class = "spacer"></div>
+    <% @survey.questions.each_with_index do |question, index| %>
       <%= erb :"questions/info", locals: {question: question} %>
+      <div class = "spacer"></div>
     <% end %>
-  </ol>
   <% if @can_edit == true %>
     <a href="/surveys/<%= @survey.id %>/edit">Edit Survey</a>
   <% end %>
+  </div>
 </div>

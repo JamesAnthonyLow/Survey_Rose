@@ -1,10 +1,10 @@
 <li>
-  </h5><%= question.body %></h5>
-  <ul>
+  
+  <%options_array = [] %>
+  <% votes_array = []%>
   <% question.options.each do |option| %>
-     <div class="spacer"></div>
-    <li><%= option.choice %> : <%= option.votes.count %> votes</li>
+    <% options_array << option.choice %>
+    <% votes_array << option.votes.count %>
   <% end %>
-     <div class="spacer"></div>
-  </ul>
+  <img src="<%=Gchart.pie(:size => '500x300', :title => question.body ,:bg => 'efefef',:legend => options_array, :data => votes_array)%>" />
 </li>

@@ -23,7 +23,7 @@ get "/surveys/:id/statistics" do
   if @survey.user_created_survey?(session[:user])
     @can_edit = true
   end
-  erb :"surveys/statistics"
+  erb :"/surveys/statistics"
 end
 
 get "/surveys/:id/edit" do
