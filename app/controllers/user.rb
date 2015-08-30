@@ -25,7 +25,7 @@ post '/users/login' do
 end
 
 get '/users/:id' do
- if session[:user]
+  if session[:user]
     @user = User.find_by(id: session[:user][:id])
     erb :'/users/index'
   else
@@ -37,8 +37,6 @@ get '/users/:id/logout' do
   session.clear
   redirect '/'
 end
-
-#### CRUD
 
 get "/users/:id/surveys/new" do
   @user = session[:user]
@@ -57,5 +55,5 @@ end
 
 get "/users/:id/surveys" do
   @surveys = session[:user].surveys.all
-  erb :'/users/surveys', :layout => false
+  erb :'/users/surveys', :layout => false if request.xhr?
 end 
