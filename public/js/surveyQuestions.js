@@ -3,18 +3,13 @@ $(document).ready(function(){
         $(document).on("submit", ".addnew", function(e) {
             e.preventDefault();
             var addNew = $(this);
-            //Must be in here twice, no idea why that works
-            $(document).find("#replaceable").replaceWith("<p></p>");
-            $(document).find("#replaceable").replaceWith("<p></p>");
           $.ajax({
               type: addNew.attr("method"),
               url: addNew.attr("action"),
               data: addNew.serialize()
             }).done(function(e) {
-              console.log(e);
-              // $("#replaceable").html("test")
-              // $(addNew).siblings("#replaceable").remove();
-              $(".container").append(e);
+            $(".container").find("#replaceable").replaceWith(e);
+              // $(".container").append(e);
             }).fail(function(e) {
               alert(e.statusText);
             });
@@ -28,12 +23,8 @@ $(document).ready(function(){
           url: $(this).attr("action"),
           data: $(this).serialize()
         }).done(function(e) {
-          $.when($(".container").append(e)).done(function(){
-            $(".container").children().on("submit", "#addnew", function(e){
-              e.preventDefault();
-            });
-          });
-        }).fail(function(e) {
+          $(".container").append(e);
+            }).fail(function(e) {
           alert(e.statusText);
         });
     });   
