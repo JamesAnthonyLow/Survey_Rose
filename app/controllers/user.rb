@@ -57,5 +57,5 @@ end
 
 get "/users/:id/surveys" do
   @surveys = session[:user].surveys.all
-  erb :'/users/surveys'
+  erb :'/users/surveys', :layout => false
 end 
