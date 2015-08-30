@@ -5,7 +5,7 @@
 	  		<form class="deleteform" action ="/questions/<%= question.id %>/delete" method="post"><input class="mydelete" type="image" src="/mydelete.ico" alt="DELETE"/><input type="hidden" method="_method" value="DELETE" /></form>
 	  	</div>
 		  	<div class="edit">
-		  	<form class="editform" action ="/questions/<%= question.id %>/edit" method="post"><input class="myedit" type="image" src="/gear.png" alt="DELETE"/><input type="hidden" method="_method" value="PUT" /></form>
+		  	<form class="editform" action ="/questions/<%= question.id %>/edit" method="GET"><input class="myedit" type="image" method="_method" src="/edit.png" alt="edit" /></form>
 		  </div>
 	  <ol>
 	  <% question.options.each do |option| %>
