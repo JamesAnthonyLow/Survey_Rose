@@ -37,7 +37,7 @@ $(document).ready(function(){
       url: $(this).attr("href"),
       data: $(this).serialize()
     }).done(function(e) {
-      $(".surveys").append(e);
+      $(".surveys").after(e);
     }).fail(function(e) {
       console.log('WTF');
     });
