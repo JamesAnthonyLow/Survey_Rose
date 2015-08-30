@@ -1,6 +1,8 @@
-<div id="page" class="container">
-	<div id = "content">
-		<h1> Surveys Created by You</h1>
+<!-- <div id="page" class="container"> -->
+<!-- <div id = "content"> -->
+		<!-- <h1> Surveys Created by You</h1> -->
+	<ul>
+		<div class="spacer"></div>
 		<% @surveys.each do |survey| %>
 		<li>
 			<h3><a href="/surveys/<%= survey.id %>"><%= survey.name %></a></h3>
@@ -8,5 +10,6 @@
 		</li>
 		<div class="spacer"></div>
 		<% end %>
-	</div>
-</div>
+	</ul>
+	<!-- </div> -->
+<!-- </div> -->
