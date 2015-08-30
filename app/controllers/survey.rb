@@ -5,11 +5,16 @@ get "/surveys" do
 end
 
 get "/surveys/:id" do
-  @survey = Survey.find_by(id: params[:id])
-  if !@survey.already_voted_by_user?(session[:user])
-    erb :"surveys/show"
+  if session[:user]
+    @survey = Survey.find_by(id: params[:id])
+    if !@survey.already_voted_by_user?(session[:user])
+      erb :"surveys/show"
+    else
+      redirect "/surveys/#{@survey.id}/statistics"
+    end
   else
-    redirect "/surveys/#{@survey.id}/statistics"
+    flash[:error] = "You must log in to take a survey."
+    redirect '/users/login'
   end
 end
 
