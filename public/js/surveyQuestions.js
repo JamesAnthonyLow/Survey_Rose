@@ -14,12 +14,6 @@ $(document).ready(function(){
     }).fail(function(e) {
       alert(e.statusText);});}); 
 
-//   $('.scroll').click(function(){
-//     $('html, body').animate({
-//         scrollTop: $( $(this).attr('href') ).offset().top
-//     }, 600);
-//     return false;
-// });
     //intercept question DELETE function
   $(document).on("submit", ".deleteform", function(e){
     e.preventDefault();
