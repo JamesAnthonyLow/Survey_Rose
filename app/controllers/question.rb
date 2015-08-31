@@ -42,5 +42,9 @@ end
 
 put "/questions/:id" do
   @question = Question.find_by(id: params[:id])
+  @question.body = params[:question][:body]
+  @question.options.delete_all
+  @question.create_options(params[:option])
+  @question.save
   erb :"questions/info", locals: { question: @question }, layout: false
 end
