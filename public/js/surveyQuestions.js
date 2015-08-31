@@ -14,11 +14,12 @@ $(document).ready(function(){
         //intercept question DELETE function
   $(document).on("submit", ".deleteform", function(e){
     e.preventDefault();
+    deleteform = $(this);
     $.ajax({
       type: "DELETE",
-      url: $(this).attr("action"),
+      url: deleteform.attr("action"),
     }).done(function(e) {
-      $(".container").find(".deletediv").replaceWith("<p></p>");
+      $(document).find(deleteform).closest(".deletediv").replaceWith("<p></p>");
     }).fail(function(e) {
       alert(e.statusText);});});
 
