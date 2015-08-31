@@ -1,4 +1,4 @@
-***Welcome To Survey Rose
+###Welcome To Survey Rose
 
 Survey Rose is a clone of the popular site Survey Monkey.  We started with the idea of making a basic CRUD app in Sinatra and then added some Ajax styling.  If you want to check it out just clone the repo and run shotgun!
 
