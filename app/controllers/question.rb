@@ -16,6 +16,7 @@ post "/surveys/:survey_id/questions" do
   @question = Question.create(body: params[:question][:body])
   @question.create_options(params[:option])
   @survey.questions << @question
+  @can_edit = true;
   @newQuestion = Question.new(options: Array.new(4){Option.new})
   @count = (@survey.questions.count + 1)
   redirect "/surveys/#{@survey.id}/questions/new" unless request.xhr?

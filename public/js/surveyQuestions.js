@@ -8,9 +8,18 @@ $(document).ready(function(){
       data: $(this).serialize()
     }).done(function(e) {
       $(".container").find("#replaceable").replaceWith(e);
+      $("html, body").animate({ 
+        scrollTop: $(document).find(".addnew").offset().top 
+      });
     }).fail(function(e) {
       alert(e.statusText);});}); 
 
+//   $('.scroll').click(function(){
+//     $('html, body').animate({
+//         scrollTop: $( $(this).attr('href') ).offset().top
+//     }, 600);
+//     return false;
+// });
     //intercept question DELETE function
   $(document).on("submit", ".deleteform", function(e){
     e.preventDefault();
@@ -65,6 +74,8 @@ $(document).ready(function(){
       data: $(this).serialize()
     }).done(function(e) {
       $(".container").append(e);
+      $("html, body").animate({ 
+        scrollTop: $(document).find(".addnew").offset().top });
     }).fail(function(e) {
       alert(e.statusText);});});   
 
