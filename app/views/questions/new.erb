@@ -1,10 +1,15 @@
 <div id="replaceable">
   <div class="spacer"></div>
   <div class="spacer"></div>
-  <form  class="smart-green addnew" action="/surveys/<%= survey.id %>/questions" method="POST">
-    <%= erb :"questions/_form", locals: { count: count, question: question } %>
-        <input id="thisinput" type="submit" value="Add a New question" />
-  </form>
-<!-- <a href="/surveys/<%= survey.id %>/edit">Finish</a> -->
-</div>
-      
+  <div class="smart-green">
+    <form  class="addnew" action="/surveys/<%= survey.id %>/questions" method="POST">
+      <%= erb :"questions/_form", locals: { count: count, question: question } %>
+      <input type="submit" value="Add a New question" />
+    </form>
+      <form id="saveall" action="/surveys/<%= survey.id %>/save" method="POST">
+      <input type="submit" value="Submit Survey" />
+    </form>
+  </div>
+  <div class="spacer"></div>
+    <div class="spacer"></div>
+      <div class="spacer"></div>

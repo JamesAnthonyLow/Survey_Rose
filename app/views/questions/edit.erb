@@ -1,8 +1,8 @@
 <div class="savediv">
   <div class="spacer"></div>
   <div class="spacer"></div>
-  <form  class="smart-green saveform" action="/questions/<%= @question.id %>" method="POST"><input type="hidden" method="_method" value="PUT" />
-    <%= erb :"questions/_form", locals: { count: @count, question: @question } %>
+  <form  class="smart-green saveform" action="/questions/<%= question.id %>" method="POST"><input type="hidden" method="_method" value="PUT" />
+    <%= erb :"questions/_form", locals: { count: count, question: question } %>
     <input type="submit" value="save" />
   </form>
 </div>

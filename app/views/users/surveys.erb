@@ -5,7 +5,7 @@
 		<div class="spacer"></div>
 		<% @surveys.each do |survey| %>
 		<li>
-			<h3><a href="/surveys/<%= survey.id %>"><%= survey.name %></a></h3>
+			<h3><a href="/surveys/<%= survey.id %>/statistics"><%= survey.name %></a></h3>
 			<%= survey.votes.count %> people have taken this survey.
 		</li>
 		<div class="spacer"></div>
