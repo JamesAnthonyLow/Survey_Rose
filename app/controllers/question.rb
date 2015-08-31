@@ -31,7 +31,12 @@ end
 delete "/questions/:id/delete" do
   q = Question.find_by(id: params[:id]).destroy
   redirect "/surveys/#{q.survey.id}/edit" unless request.xhr?
+  # Prob redir after a delete
+  # OR
+  #
+  # You can simply return '200'
   erb "<p></p>"
+  200
 end
 
 get "/questions/:id/edit" do

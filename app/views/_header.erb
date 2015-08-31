@@ -13,7 +13,7 @@
           <li><a href="/surveys">Surveys</a></li>
         <% if session[:user] %>
           <li><a href="/users/<%= session[:user][:id] %>">Your Profile</a></li>
-          <li><a href="/users/<%= session[:user][:id] %>/logout">Log Out</a></li>
+          <li><a id="logout-link" href="/users/<%= session[:user][:id] %>">Log Out</a></li>
         <%else%>
           <li><a href="/users/login">Login or Register</a></li>
         <%end%>

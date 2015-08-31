@@ -33,7 +33,7 @@ get '/users/:id' do
   end
 end
 
-get '/users/:id/logout' do
+delete '/users/:id' do
   session.clear
   redirect '/'
 end
@@ -45,8 +45,8 @@ end
 
 post "/users/surveys" do
   @user = session[:user]
-  @survey = @user.surveys.new(params[:survey])
-  if @user.save
+  @survey = @user.surveys.build(params[:survey])
+  if @survey.save
     redirect "/surveys/#{@survey.id}/questions/new"
   else
     redirect "/users/#{@user.id}/surveys/new"

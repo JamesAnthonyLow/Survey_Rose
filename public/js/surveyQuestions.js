@@ -66,10 +66,9 @@ $(document).ready(function(){
       type: $(this).attr("method"),
       url: $(this).attr("action"),
       data: $(this).serialize()
-    }).done(function(e) {
-      $(".container").append(e);
-      $("html, body").animate({ 
-        scrollTop: $(document).find(".addnew").offset().top });
+    }).done(function(data) {
+      $(".container").append(data);
+      $("html, body").animate({ scrollTop: $(document).find(".addnew").offset().top });
     }).fail(function(e) {
       alert(e.statusText);});});   
 
