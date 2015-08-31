@@ -39,3 +39,8 @@ get "/questions/:id/edit" do
   @count = (survey.questions.index(@question) + 1)
   erb :"questions/edit", layout: false if request.xhr?
 end
+
+put "/questions/:id" do
+  @question = Question.find_by(id: params[:id])
+  erb :"questions/info", locals: { question: @question }, layout: false
+end

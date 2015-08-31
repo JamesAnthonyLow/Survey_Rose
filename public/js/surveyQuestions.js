@@ -33,6 +33,19 @@ $(document).ready(function(){
     }).fail(function(e) {
       alert(e.statusText);});});
 
+    //intercept question SAVE function
+    $(document).on("submit", ".saveform", function(e){
+    e.preventDefault();
+    var saveform = $(this);
+    $.ajax({
+      type: "PUT",
+      url: saveform.attr("action"),
+      data: saveform.serialize()
+    }).done(function(e) {
+       $(".container").find(".savediv").replaceWith(e);
+    }).fail(function(e) {
+      alert(e.statusText);});});
+
 
         //save survey name and dropdown new question form
   $("#newsurveyform").submit(function(e) {
