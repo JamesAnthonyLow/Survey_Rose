@@ -37,7 +37,7 @@ get "/questions/:id/edit" do
   @question = Question.find_by(id: params[:id])
   survey = @question.survey
   @count = (survey.questions.index(@question) + 1)
-  erb :"questions/edit", layout: false if request.xhr?
+  erb :"questions/edit", locals: { count: @count, question: @question }, layout: false if request.xhr?
 end
 
 put "/questions/:id" do
@@ -46,5 +46,5 @@ put "/questions/:id" do
   @question.options.delete_all
   @question.create_options(params[:option])
   @question.save
-  erb :"questions/info", locals: { question: @question }, layout: false
+  erb :"questions/info", locals: { question: @question, can_edit: true }, layout: false
 end

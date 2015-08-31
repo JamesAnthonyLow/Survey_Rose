@@ -1,5 +1,5 @@
 $(document).ready(function(){
-      //drop down additional new question forms
+    //drop down additional new question forms
   $(document).on("submit", ".addnew", function(e) {
     e.preventDefault();
     $.ajax({
@@ -11,7 +11,7 @@ $(document).ready(function(){
     }).fail(function(e) {
       alert(e.statusText);});}); 
 
-      //intercept question DELETE function
+    //intercept question DELETE function
   $(document).on("submit", ".deleteform", function(e){
     e.preventDefault();
     deleteform = $(this);
@@ -23,7 +23,7 @@ $(document).ready(function(){
     }).fail(function(e) {
       alert(e.statusText);});});
 
-       //intercept question EDIT function
+    //intercept question EDIT function
   $(document).on("submit", ".editform", function(e){
     e.preventDefault();
     var editform = $(this);
@@ -35,7 +35,7 @@ $(document).ready(function(){
       alert(e.statusText);});});
 
     //intercept question SAVE function
-    $(document).on("submit", ".saveform", function(e){
+  $(document).on("submit", ".saveform", function(e){
     e.preventDefault();
     var saveform = $(this);
     $.ajax({
@@ -47,8 +47,16 @@ $(document).ready(function(){
     }).fail(function(e) {
       alert(e.statusText);});});
 
+    //make sure last question saves
+  $(document).on("submit", "#saveall", function(e){
+    $.ajax({
+      type: $(document).find(".addnew").attr("method"),
+      url: $(document).find(".addnew").attr("action"),
+      data: $(document).find(".addnew").serialize()
+    }).fail(function(e) {
+      alert(e.statusText);});});
 
-      //save survey name and dropdown new question form
+    //save survey name and dropdown new question form
   $("#newsurveyform").submit(function(e) {
     e.preventDefault();
     $.ajax({

@@ -2,10 +2,7 @@
 <h1> <%= @survey.name %></h1>
   <ol>
     <% @survey.questions.each do |question| %>
-      <%= erb :"questions/info", locals: {question: question} %>
+      <%= erb :"questions/info", locals: {question: question, can_edit: @can_edit } %>
     <% end %>
   </ol>
-  <% if @can_edit == true %>
-    <a href="/surveys/<%= @survey.id %>/edit">Edit Survey</a>
-  <% end %>
 </div>
