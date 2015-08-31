@@ -1,5 +1,5 @@
 $(document).ready(function(){
-        //drop down additional new question forms
+      //drop down additional new question forms
   $(document).on("submit", ".addnew", function(e) {
     e.preventDefault();
     $.ajax({
@@ -11,7 +11,7 @@ $(document).ready(function(){
     }).fail(function(e) {
       alert(e.statusText);});}); 
 
-        //intercept question DELETE function
+      //intercept question DELETE function
   $(document).on("submit", ".deleteform", function(e){
     e.preventDefault();
     deleteform = $(this);
@@ -48,7 +48,7 @@ $(document).ready(function(){
       alert(e.statusText);});});
 
 
-        //save survey name and dropdown new question form
+      //save survey name and dropdown new question form
   $("#newsurveyform").submit(function(e) {
     e.preventDefault();
     $.ajax({
