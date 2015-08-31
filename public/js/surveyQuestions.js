@@ -14,11 +14,36 @@ $(document).ready(function(){
         //intercept question DELETE function
   $(document).on("submit", ".deleteform", function(e){
     e.preventDefault();
+    deleteform = $(this);
     $.ajax({
       type: "DELETE",
-      url: $(this).attr("action"),
+      url: deleteform.attr("action"),
     }).done(function(e) {
-      $(".container").find(".deletediv").replaceWith("<p></p>");
+      $(document).find(deleteform).closest(".deletediv").replaceWith("<p></p>");
+    }).fail(function(e) {
+      alert(e.statusText);});});
+
+       //intercept question EDIT function
+  $(document).on("submit", ".editform", function(e){
+    e.preventDefault();
+    var editform = $(this);
+    $.ajax({
+      url: editform.attr("action"),
+    }).done(function(e) {
+      $(document).find(editform).closest(".editdiv").replaceWith(e);
+    }).fail(function(e) {
+      alert(e.statusText);});});
+
+    //intercept question SAVE function
+    $(document).on("submit", ".saveform", function(e){
+    e.preventDefault();
+    var saveform = $(this);
+    $.ajax({
+      type: "PUT",
+      url: saveform.attr("action"),
+      data: saveform.serialize()
+    }).done(function(e) {
+       $(".container").find(".savediv").replaceWith(e);
     }).fail(function(e) {
       alert(e.statusText);});});
 
