@@ -43,7 +43,7 @@ $(document).ready(function(){
       url: saveform.attr("action"),
       data: saveform.serialize()
     }).done(function(e) {
-       $(".container").find(".savediv").replaceWith(e);
+       $(document).find(".savediv").replaceWith(e);
     }).fail(function(e) {
       alert(e.statusText);});});
 
